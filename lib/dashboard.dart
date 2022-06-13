@@ -1,6 +1,7 @@
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
 import 'package:argosy_companion/putni_nalozi.dart';
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -31,22 +32,22 @@ class _DashboardState extends State<Dashboard> {
                 height: 40,
               ),
               buildRoundedReport(
-                  context, Color(ArgosyCompanionConstants.izlazniRacunHex), "Izlazni racuni", 1, 0),
+                  context, Color(ArgosyCompanionConstants.izlazniRacunHex), "Izlazni računi", 1, 0),
               const SizedBox(
                 height: 15,
               ),
               buildRoundedReport(
-                  context, Color(ArgosyCompanionConstants.ulazniRacunHex), "Ulazni racuni", 1, 0),
+                  context, Color(ArgosyCompanionConstants.ulazniRacunHex), "Ulazni računi", 3, 1),
               const SizedBox(
                 height: 15,
               ),
               buildRoundedReport(
-                  context, Color(ArgosyCompanionConstants.putniNalogHex), "Putni nalozi", 1, 0),
+                  context, Color(ArgosyCompanionConstants.putniNalogHex), "Putni nalozi", 6, 3),
               const SizedBox(
                 height: 15,
               ),
               buildRoundedReport(
-                  context, Color(ArgosyCompanionConstants.obracunHex), "Obracun putnih naloga", 1, 0),
+                  context, Color(ArgosyCompanionConstants.obracunHex), "Obračun putnih naloga", 2, 1),
             ],
           ),
         ),
@@ -55,57 +56,78 @@ class _DashboardState extends State<Dashboard> {
   }
 }
 
+
+
 Widget buildRoundedReport(BuildContext context, Color backgroundColor,
         String title, int documents, int newDocuments,
         {TextStyle titleStyle = const TextStyle(
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
         TextStyle descStyle = const TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+            color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
         TextStyle dateStyle =
             const TextStyle(fontSize: 10, color: Colors.white),
+          TextStyle italicStyle = const TextStyle(
+            color: Colors.white, fontSize: 16 ),
         double widthRatio = 0.8}) =>
-    TextButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const PutniNalozi()),
-        );
-      },
-      child: Card(
-        color: backgroundColor,
-        shadowColor: backgroundColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    Badge(
+      shape: BadgeShape.square,
+      borderRadius: BorderRadius.circular(5),
+      position: BadgePosition.topEnd(top: 2, end: 5),
+      padding: const EdgeInsets.all(2),
+      badgeColor: Colors.blue,
+      showBadge: newDocuments > 0,
+      badgeContent: Text(
+      '$newDocuments NOVIH',
+      style: const TextStyle(
+      color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
+      ),
+      child:
+        TextButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const PutniNalozi()),
+            );
+          },
+          child: Card(
+            color: backgroundColor,
+            shadowColor: backgroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
                 children: [
-                  Text(
-                    title,
-                    style: titleStyle,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        title,
+                        style: titleStyle,
+                      )
+                    ],
                   ),
-                  Text(
-                    '$newDocuments',
-                    style: descStyle,
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        'Ukupno dokumenata:',
+                        style: italicStyle,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        '$documents',
+                        style: descStyle,
+                      ),
+                    ],
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    '$documents',
-                    style: descStyle,
-                  ),
-                ],
-              )
-            ],
+            ),
           ),
         ),
-      ),
     );
