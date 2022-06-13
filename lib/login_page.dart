@@ -1,7 +1,6 @@
+import 'package:argosy_companion/classes/argosy_companion_constants.dart';
 import 'package:argosy_companion/dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
@@ -22,7 +21,7 @@ class _LoginState extends State<Login> {
             Text("Argosy Companion!",
                 style: GoogleFonts.quicksand(
                     fontSize: 36, fontWeight: FontWeight.w100)),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -32,7 +31,7 @@ class _LoginState extends State<Login> {
                     color: Colors.grey[300],
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(25)),
-                child: Padding(
+                child: const Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: TextField(
                     decoration: InputDecoration(
@@ -41,7 +40,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
@@ -51,7 +50,7 @@ class _LoginState extends State<Login> {
                     color: Colors.grey[300],
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(25)),
-                child: Padding(
+                child: const Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: TextField(
                     obscureText: true,
@@ -61,13 +60,13 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Color(0xFFbbe3e9)),
+                        MaterialStateProperty.all<Color>(Color(ArgosyCompanionConstants.acMainThemeColor)),
                     padding: MaterialStateProperty.all(
                         const EdgeInsets.symmetric(
                             horizontal: 25, vertical: 10))),

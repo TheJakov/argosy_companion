@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:argosy_companion/classes/argosy_companion_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PutniNalozi extends StatefulWidget {
   const PutniNalozi({Key? key}) : super(key: key);
@@ -24,7 +21,7 @@ class _PutniNaloziState extends State<PutniNalozi> {
               Row(
                 children: [
                   TextButton(
-                      child: Icon(
+                      child: const Icon(
                         Icons.chevron_left,
                         size: 30,
                         color: Colors.black,
@@ -34,7 +31,7 @@ class _PutniNaloziState extends State<PutniNalozi> {
                       }),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.5,
-                    child: Text(
+                    child: const Text(
                       "Putni nalozi",
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
@@ -74,7 +71,7 @@ Widget buildRoundedReport(
         Navigator.pop(context);
       },
       child: Card(
-        color: Color(0xFFf39c12),
+        color: Color(ArgosyCompanionConstants.putniNalogHex),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -98,12 +95,12 @@ Widget buildRoundedReport(
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.white),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
                     Row(
@@ -112,7 +109,7 @@ Widget buildRoundedReport(
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Datum:",
+                            const Text("Datum:",
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w300,
@@ -120,8 +117,8 @@ Widget buildRoundedReport(
                             const SizedBox(
                               height: 10,
                             ),
-                            Text("$date",
-                                style: TextStyle(
+                            Text(date,
+                                style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.black)),
@@ -129,7 +126,7 @@ Widget buildRoundedReport(
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
@@ -138,7 +135,7 @@ Widget buildRoundedReport(
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Odrediste:",
+                            const Text("Odrediste:",
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w300,
@@ -146,8 +143,8 @@ Widget buildRoundedReport(
                             const SizedBox(
                               height: 10,
                             ),
-                            Text("$destination",
-                                style: TextStyle(
+                            Text(destination,
+                                style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.black)),

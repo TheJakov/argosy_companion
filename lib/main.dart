@@ -1,6 +1,4 @@
 import 'package:argosy_companion/auth_page.dart';
-import 'package:argosy_companion/dashboard.dart';
-import 'package:argosy_companion/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

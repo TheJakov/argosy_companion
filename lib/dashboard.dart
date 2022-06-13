@@ -1,12 +1,6 @@
+import 'package:argosy_companion/classes/argosy_companion_constants.dart';
 import 'package:argosy_companion/putni_nalozi.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
-int ulazniRacunHex = 0xFF16a085;
-int izlazniRacunHex = 0xFF2ecc71;
-int putniNalogHex = 0xFFf39c12;
-int obracunHex = 0xFF8e44ad;
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -26,33 +20,33 @@ class _DashboardState extends State<Dashboard> {
           child: Column(
             children: [
               Row(
-                children: [
+                children: const [
                   Text(
                     "Odobravanje dokumenata",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               buildRoundedReport(
-                  context, Color(izlazniRacunHex), "Izlazni racuni", 1, 0),
-              SizedBox(
+                  context, Color(ArgosyCompanionConstants.izlazniRacunHex), "Izlazni racuni", 1, 0),
+              const SizedBox(
                 height: 15,
               ),
               buildRoundedReport(
-                  context, Color(ulazniRacunHex), "Ulazni racuni", 1, 0),
-              SizedBox(
+                  context, Color(ArgosyCompanionConstants.ulazniRacunHex), "Ulazni racuni", 1, 0),
+              const SizedBox(
                 height: 15,
               ),
               buildRoundedReport(
-                  context, Color(putniNalogHex), "Putni nalozi", 1, 0),
-              SizedBox(
+                  context, Color(ArgosyCompanionConstants.putniNalogHex), "Putni nalozi", 1, 0),
+              const SizedBox(
                 height: 15,
               ),
               buildRoundedReport(
-                  context, Color(obracunHex), "Obracun putnih naloga", 1, 0),
+                  context, Color(ArgosyCompanionConstants.obracunHex), "Obracun putnih naloga", 1, 0),
             ],
           ),
         ),
@@ -84,7 +78,7 @@ Widget buildRoundedReport(BuildContext context, Color backgroundColor,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Row(
@@ -100,7 +94,7 @@ Widget buildRoundedReport(BuildContext context, Color backgroundColor,
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
