@@ -47,7 +47,7 @@ class _AuthorisationState extends State<Authorisation> {
             ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Color(ArgosyCompanionConstants.acMainThemeColor)),
+                        MaterialStateProperty.all<Color>(Color(ArgosyCompanionConstants.acMainThemeColorHex)),
                     padding: MaterialStateProperty.all(
                         const EdgeInsets.symmetric(
                             horizontal: 25, vertical: 10))),

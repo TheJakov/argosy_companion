@@ -90,7 +90,7 @@ Widget buildTravelWarrantCard(
         Navigator.pop(context);
       },
       child: Card(
-        color: Color(ArgosyCompanionConstants.putniNalogHex),
+        color: Color(ArgosyCompanionConstants.travelWarrantHex),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -111,7 +111,7 @@ Widget buildTravelWarrantCard(
                     borderRadius: BorderRadius.circular(5),
                     position: BadgePosition.topEnd(top: 2, end: 5),
                     padding: const EdgeInsets.all(2),
-                    badgeColor: Colors.blue,
+                    badgeColor: ArgosyCompanionConstants.badgeMainColor,
                     badgeContent: const Text(
                       'NOVO',
                       style: TextStyle(

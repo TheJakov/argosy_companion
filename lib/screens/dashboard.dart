@@ -32,22 +32,22 @@ class _DashboardState extends State<Dashboard> {
                 height: 40,
               ),
               buildDashboardItem(
-                  context, Color(ArgosyCompanionConstants.izlazniRacunHex), "Izlazni računi", 1, 0),
+                  context, Color(ArgosyCompanionConstants.outputInvoiceHex), "Izlazni računi", 1, 0),
               const SizedBox(
                 height: 15,
               ),
               buildDashboardItem(
-                  context, Color(ArgosyCompanionConstants.ulazniRacunHex), "Ulazni računi", 3, 1),
+                  context, Color(ArgosyCompanionConstants.incomingInvoiceHex), "Ulazni računi", 3, 1),
               const SizedBox(
                 height: 15,
               ),
               buildDashboardItem(
-                  context, Color(ArgosyCompanionConstants.putniNalogHex), "Putni nalozi", 6, 3),
+                  context, Color(ArgosyCompanionConstants.travelWarrantHex), "Putni nalozi", 6, 3),
               const SizedBox(
                 height: 15,
               ),
               buildDashboardItem(
-                  context, Color(ArgosyCompanionConstants.obracunHex), "Obračun putnih naloga", 2, 1),
+                  context, Color(ArgosyCompanionConstants.travelWarrantCalculationHex), "Obračun putnih naloga", 2, 1),
             ],
           ),
         ),
@@ -74,7 +74,7 @@ Widget buildDashboardItem(BuildContext context, Color backgroundColor,
       borderRadius: BorderRadius.circular(5),
       position: BadgePosition.topEnd(top: 2, end: 5),
       padding: const EdgeInsets.all(2),
-      badgeColor: Colors.blue,
+      badgeColor: ArgosyCompanionConstants.badgeMainColor,
       showBadge: newDocuments > 0,
       badgeContent: Text(
       '$newDocuments NOVIH',
