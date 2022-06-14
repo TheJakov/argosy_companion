@@ -1,4 +1,4 @@
-import 'package:argosy_companion/auth_page.dart';
+import 'package:argosy_companion/screens/authorization.dart';
 import 'package:flutter/material.dart';
 
 void main() {

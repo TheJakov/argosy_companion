@@ -1,5 +1,5 @@
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
-import 'package:argosy_companion/dashboard.dart';
+import 'package:argosy_companion/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

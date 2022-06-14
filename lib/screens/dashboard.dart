@@ -1,5 +1,5 @@
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
-import 'package:argosy_companion/putni_nalozi.dart';
+import 'package:argosy_companion/screens/travel_warrants.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 
@@ -31,22 +31,22 @@ class _DashboardState extends State<Dashboard> {
               const SizedBox(
                 height: 40,
               ),
-              buildRoundedReport(
+              buildDashboardItem(
                   context, Color(ArgosyCompanionConstants.izlazniRacunHex), "Izlazni računi", 1, 0),
               const SizedBox(
                 height: 15,
               ),
-              buildRoundedReport(
+              buildDashboardItem(
                   context, Color(ArgosyCompanionConstants.ulazniRacunHex), "Ulazni računi", 3, 1),
               const SizedBox(
                 height: 15,
               ),
-              buildRoundedReport(
+              buildDashboardItem(
                   context, Color(ArgosyCompanionConstants.putniNalogHex), "Putni nalozi", 6, 3),
               const SizedBox(
                 height: 15,
               ),
-              buildRoundedReport(
+              buildDashboardItem(
                   context, Color(ArgosyCompanionConstants.obracunHex), "Obračun putnih naloga", 2, 1),
             ],
           ),
@@ -58,7 +58,7 @@ class _DashboardState extends State<Dashboard> {
 
 
 
-Widget buildRoundedReport(BuildContext context, Color backgroundColor,
+Widget buildDashboardItem(BuildContext context, Color backgroundColor,
         String title, int documents, int newDocuments,
         {TextStyle titleStyle = const TextStyle(
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
