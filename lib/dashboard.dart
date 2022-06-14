@@ -86,7 +86,7 @@ Widget buildRoundedReport(BuildContext context, Color backgroundColor,
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const PutniNalozi()),
+              MaterialPageRoute(builder: (context) => const TravelWarrants()),
             );
           },
           child: Card(

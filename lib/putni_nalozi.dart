@@ -1,14 +1,40 @@
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
 import 'package:flutter/material.dart';
 
-class PutniNalozi extends StatefulWidget {
-  const PutniNalozi({Key? key}) : super(key: key);
+var data = [
+  {'person': 'Jakov Kristović', 'date': '05-06-2022', 'destination': 'Zagreb' },
+  {'person': 'Luka Rokolj', 'date': '15-06-2022', 'destination': 'Glasgow' },
+  {'person': 'Jack Sparrow', 'date': '02-07-2022', 'destination': 'Black Pearl' },
+  {'person': 'Davy Jones', 'date': '05-07-2022', 'destination': 'The Flying Dutchman' },
+  {'person': 'Hector Barbosa', 'date': '23-07-2022', 'destination': 'Isle de Muerte' },
+];
 
-  @override
-  State<PutniNalozi> createState() => _PutniNaloziState();
+buildCards(BuildContext context, List<Map<String, String>> data){
+  var cards = <Widget>[];
+
+  if(data.isEmpty) {
+    return cards;
+  }
+
+  for (var element in data) {
+    cards.add(
+        buildTravelWarrantCard(
+            context, element['person'].toString(),
+            element['date'].toString(), element['destination'].toString())
+    );
+  }
+
+  return cards;
 }
 
-class _PutniNaloziState extends State<PutniNalozi> {
+class TravelWarrants extends StatefulWidget {
+  const TravelWarrants({Key? key}) : super(key: key);
+
+  @override
+  State<TravelWarrants> createState() => _TravelWarrantsState();
+}
+
+class _TravelWarrantsState extends State<TravelWarrants> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,16 +65,7 @@ class _PutniNaloziState extends State<PutniNalozi> {
                   )
                 ],
               ),
-              buildRoundedReport(
-                  context, "Jakov Kristovic", "05-06-2022", "Zagreb"),
-              buildRoundedReport(
-                  context, "Luka Rokolj", "15-09-2022", "Glasgow"),
-              buildRoundedReport(
-                  context, "Jack Sparrow", "05-06-2022", "Black Pearl"),
-              buildRoundedReport(
-                  context, "Davy Jones", "05-06-2022", "The Flying Dutchman"),
-              buildRoundedReport(
-                  context, "Hector Barbosa", "05-06-2022", "Isle de Muerte"),
+              ...buildCards(context, data)
             ],
           ),
         ),
@@ -57,7 +74,7 @@ class _PutniNaloziState extends State<PutniNalozi> {
   }
 }
 
-Widget buildRoundedReport(
+Widget buildTravelWarrantCard(
         BuildContext context, String name, String date, String destination,
         {TextStyle titleStyle = const TextStyle(
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
@@ -135,7 +152,7 @@ Widget buildRoundedReport(
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text("Odrediste:",
+                            const Text("Odredište:",
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w300,
