@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                   ),
                   Icon(
-                    Icons.person,
+                    Icons.account_circle_rounded,
                     size: 28,
                     color: Colors.black,
                   )

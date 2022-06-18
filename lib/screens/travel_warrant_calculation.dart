@@ -1,7 +1,5 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../classes/argosy_companion_constants.dart';
 
@@ -89,7 +87,7 @@ class _TravelWarrantCalculationState extends State<TravelWarrantCalculation> {
                   Container(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: const Text(
-                      "Obracun putnog naloga",
+                      "Obračun putnog naloga",
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                     ),
@@ -194,7 +192,7 @@ Widget buildTravelWarrantCalculationCard(
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text("Odrediste:",
+                          const Text("Odredište:",
                               style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w300,
