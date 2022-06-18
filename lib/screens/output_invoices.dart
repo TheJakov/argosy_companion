@@ -1,7 +1,5 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../classes/argosy_companion_constants.dart';
 
@@ -32,7 +30,7 @@ var data = [
   },
   {
     'client': 'FOING NOVA D.O.O',
-    'type': 'RACUN ULAZNI (sa PDV) bez veze na ugovor',
+    'type': 'RAČUN ULAZNI (sa PDV) bez veze na ugovor',
     'amount': '456,79',
     'new': true
   },
