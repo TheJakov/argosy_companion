@@ -10,30 +10,40 @@ var data = [
     'worker': 'Jack Sparrow',
     'date': '24.05. - 26.05.',
     'destination': 'Tortuga',
+    'reason': 'Drink',
+    'note': 'Mission successful',
     'new': false
   },
   {
     'worker': 'Tia Dalma',
     'date': '01.06. - 04.06',
     'destination': 'Davy Jones Locker',
+    'reason': 'Get Jack back',
+    'note': '',
     'new': false
   },
   {
     'worker': 'Hector Barbosa',
     'date': '02.05. - 14.05.',
     'destination': 'Isla de Muerte',
+    'reason': 'Death',
+    'note': 'Kinda died',
     'new': true
   },
   {
     'worker': 'William Turner',
     'date': '04.05. - 12.05.',
     'destination': 'The Flying Dutchman',
+    'reason': 'Save his father',
+    'note': 'Kinda failed',
     'new': false
   },
   {
     'worker': 'Elizabeth Swann',
     'date': '12.04. - 03.06.',
     'destination': 'Port Royal',
+    'reason': 'Visiting home',
+    'note': '',
     'new': true
   },
 ];
@@ -51,6 +61,8 @@ buildCards(BuildContext context, List<Map<String, Object>> data) {
         element['worker'].toString(),
         element['date'].toString(),
         element['destination'].toString(),
+        element['reason'].toString(),
+        element['note'].toString(),
         isNew: element['new'] as bool));
   }
 
@@ -105,8 +117,8 @@ class _TravelWarrantCalculationState extends State<TravelWarrantCalculation> {
   }
 }
 
-Widget buildTravelWarrantCalculationCard(
-        BuildContext context, String worker, String date, String destination,
+Widget buildTravelWarrantCalculationCard(BuildContext context, String name,
+        String date, String destination, String reason, String note,
         {bool isNew = false,
         TextStyle titleStyle = const TextStyle(
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
@@ -132,7 +144,7 @@ Widget buildTravelWarrantCalculationCard(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    worker,
+                    name,
                     style: titleStyle,
                   ),
                   Badge(
@@ -163,25 +175,29 @@ Widget buildTravelWarrantCalculationCard(
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Flexible(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Datum:",
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.24,
+                            child: const Text("Datum:",
                                 style: TextStyle(
                                     fontSize: 16,
-                                    fontWeight: FontWeight.w300,
+                                    fontWeight: FontWeight.bold,
                                     color: Colors.black)),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(date,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.62,
+                            child: Text(date,
                                 style: const TextStyle(
                                     fontSize: 18,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w300,
                                     color: Colors.black)),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -191,26 +207,97 @@ Widget buildTravelWarrantCalculationCard(
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
+                      Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text("Odrediste:",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w300,
-                                  color: Colors.black)),
-                          const SizedBox(
-                            height: 10,
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.24,
+                            child: const Text("Odredište:",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
                           ),
-                          Text(destination,
-                              style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black)),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.62,
+                            child: Text(destination,
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.black)),
+                          ),
                         ],
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.24,
+                            child: const Text("Razlog:",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.62,
+                            child: Text(reason,
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.black)),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  if (note.isNotEmpty)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.24,
+                              child: const Text("Napomena:",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.62,
+                              child: Text(note,
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.black)),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                 ],
               ),
             )

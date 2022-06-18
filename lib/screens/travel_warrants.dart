@@ -3,26 +3,64 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
 var data = [
-  {'person': 'Jakov Kristović', 'date': '05-06-2022', 'destination': 'Zagreb', 'new': false },
-  {'person': 'Luka Rokolj', 'date': '15-06-2022', 'destination': 'Glasgow', 'new': false },
-  {'person': 'Jack Sparrow', 'date': '02-07-2022', 'destination': 'Black Pearl', 'new': true },
-  {'person': 'Davy Jones', 'date': '05-07-2022', 'destination': 'The Flying Dutchman', 'new': true },
-  {'person': 'Hector Barbosa', 'date': '23-07-2022', 'destination': 'Isle de Muerte', 'new': true },
+  {
+    'person': 'Jakov Kristović',
+    'date': '05-06-2022',
+    'destination': 'Zagreb',
+    'reason': '.debug konferencija',
+    'note': 'Putovanje avionom',
+    'new': false,
+  },
+  {
+    'person': 'Luka Rokolj',
+    'date': '15-06-2022',
+    'destination': 'Glasgow',
+    'reason': 'University business',
+    'note': 'Ide preko volje',
+    'new': false,
+  },
+  {
+    'person': 'Jack Sparrow',
+    'date': '02-07-2022',
+    'destination': 'Black Pearl',
+    'reason': 'Raid and steal',
+    'note': 'Shoo',
+    'new': true,
+  },
+  {
+    'person': 'Davy Jones',
+    'date': '05-07-2022',
+    'destination': 'The Flying Dutchman',
+    'reason': 'One day is over',
+    'note': '',
+    'new': true,
+  },
+  {
+    'person': 'Hector Barbosa',
+    'date': '23-07-2022',
+    'destination': 'Isle de Muerte',
+    'reason': 'Death',
+    'note': '',
+    'new': true,
+  },
 ];
 
-buildCards(BuildContext context, List<Map<String, Object>> data){
+buildCards(BuildContext context, List<Map<String, Object>> data) {
   var cards = <Widget>[];
 
-  if(data.isEmpty) {
+  if (data.isEmpty) {
     return cards;
   }
 
   for (var element in data) {
-    cards.add(
-        buildTravelWarrantCard(
-            context, element['person'].toString(), element['date'].toString(),
-            element['destination'].toString(), isNew: element['new'] as bool)
-    );
+    cards.add(buildTravelWarrantCard(
+        context,
+        element['person'].toString(),
+        element['date'].toString(),
+        element['destination'].toString(),
+        element['reason'].toString(),
+        element['note'].toString(),
+        isNew: element['new'] as bool));
   }
 
   return cards;
@@ -75,10 +113,10 @@ class _TravelWarrantsState extends State<TravelWarrants> {
   }
 }
 
-Widget buildTravelWarrantCard(
-        BuildContext context, String name, String date, String destination,
-        { bool isNew = false,
-          TextStyle titleStyle = const TextStyle(
+Widget buildTravelWarrantCard(BuildContext context, String name, String date,
+        String destination, String reason, String note,
+        {bool isNew = false,
+        TextStyle titleStyle = const TextStyle(
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
         TextStyle descStyle = const TextStyle(
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
@@ -115,7 +153,9 @@ Widget buildTravelWarrantCard(
                     badgeContent: const Text(
                       'NOVO',
                       style: TextStyle(
-                          color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
                     ),
                   )
                 ],
@@ -124,30 +164,35 @@ Widget buildTravelWarrantCard(
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.white),
+                  borderRadius: BorderRadius.circular(12), color: Colors.white),
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
+                      Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text("Datum:",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w300,
-                                  color: Colors.black)),
-                          const SizedBox(
-                            height: 10,
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.24,
+                            child: const Text("Datum:",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
                           ),
-                          Text(date,
-                              style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black)),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.62,
+                            child: Text(date,
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.black)),
+                          ),
                         ],
                       ),
                     ],
@@ -158,26 +203,97 @@ Widget buildTravelWarrantCard(
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
+                      Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text("Odredište:",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w300,
-                                  color: Colors.black)),
-                          const SizedBox(
-                            height: 10,
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.24,
+                            child: const Text("Odredište:",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
                           ),
-                          Text(destination,
-                              style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black)),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.62,
+                            child: Text(destination,
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.black)),
+                          ),
                         ],
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.24,
+                            child: const Text("Razlog:",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.62,
+                            child: Text(reason,
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.black)),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  if (note.isNotEmpty)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.24,
+                              child: const Text("Napomena:",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.62,
+                              child: Text(note,
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.black)),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                 ],
               ),
             )
