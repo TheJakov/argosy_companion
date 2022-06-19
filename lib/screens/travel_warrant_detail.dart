@@ -1,4 +1,5 @@
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
+import 'package:argosy_companion/classes/argosy_companion_util.dart';
 import 'package:argosy_companion/classes/travel_warrant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,7 +29,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                       child: const Icon(
                         Icons.chevron_left,
                         size: 30,
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                       onPressed: () {
                         Navigator.pop(context);
@@ -38,7 +39,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                     child: const Text(
                       "Zahtjev putni nalog",
                       style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.w500, color: Colors.white),
                     ),
                   ),
                 ],
@@ -63,11 +64,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Text('${widget.travelWarrant.person}',
-                                style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black)),
+                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.person)
                           ],
                         ),
                       ]),
@@ -86,11 +83,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Text('${widget.travelWarrant.datePeriod()}',
-                                style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black)),
+                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.datePeriod())
                           ],
                         ),
                       ]),
@@ -109,11 +102,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Text('${widget.travelWarrant.destination}',
-                                style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black)),
+                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.destination)
                           ],
                         ),
                       ]),
@@ -132,11 +121,26 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Text('${widget.travelWarrant.reason}',
-                                style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
+                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.reason)
+                          ],
+                        ),
+                      ]),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text("Projekti",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300,
                                     color: Colors.black)),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.getProjects())
                           ],
                         ),
                       ]),
@@ -155,11 +159,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Text('${widget.travelWarrant.remark}',
-                                style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black)),
+                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.remark)
                           ],
                         ),
                       ]),
@@ -178,12 +178,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Text(
-                                '${widget.travelWarrant.meansOfTransportation}',
-                                style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black)),
+                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.meansOfTransportation)
                           ],
                         ),
                       ]),
@@ -202,11 +197,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Text('${widget.travelWarrant.advances}',
-                                style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black)),
+                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.advances)
                           ],
                         ),
                       ]),
@@ -229,9 +220,9 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                             Navigator.pop(context);
                           },
                           child: const Icon(
-                            Icons.edit_calendar,
-                            size: 28,
-                            color: Colors.black,
+                            Icons.edit_note_rounded,
+                            size: 35,
+                            color: Colors.black
                           ),
                         ),
                       ),
@@ -244,7 +235,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                               TextButton(
                                   style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,
-                                      minimumSize: Size(50, 30),
+                                      minimumSize: const Size(50, 30),
                                       tapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap,
                                       alignment: Alignment.centerLeft),
@@ -269,7 +260,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                               TextButton(
                                   style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,
-                                      minimumSize: Size(50, 30),
+                                      minimumSize: const Size(50, 30),
                                       tapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap,
                                       alignment: Alignment.centerLeft),
