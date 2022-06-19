@@ -1,51 +1,9 @@
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:argosy_companion/classes/travel_warrant.dart';
 
-var data = [
-  {
-    'person': 'Jakov Kristović',
-    'date': '05-06-2022',
-    'destination': 'Zagreb',
-    'reason': '.debug konferencija',
-    'note': 'Putovanje avionom',
-    'new': false,
-  },
-  {
-    'person': 'Luka Rokolj',
-    'date': '15-06-2022',
-    'destination': 'Glasgow',
-    'reason': 'University business',
-    'note': 'Ide preko volje',
-    'new': false,
-  },
-  {
-    'person': 'Jack Sparrow',
-    'date': '02-07-2022',
-    'destination': 'Black Pearl',
-    'reason': 'Raid and steal',
-    'note': 'Shoo',
-    'new': true,
-  },
-  {
-    'person': 'Davy Jones',
-    'date': '05-07-2022',
-    'destination': 'The Flying Dutchman',
-    'reason': 'One day is over',
-    'note': '',
-    'new': true,
-  },
-  {
-    'person': 'Hector Barbosa',
-    'date': '23-07-2022',
-    'destination': 'Isle de Muerte',
-    'reason': 'Death',
-    'note': '',
-    'new': true,
-  },
-];
-
-buildCards(BuildContext context, List<Map<String, Object>> data) {
+buildCards(BuildContext context, List<TravelWarrant> data) {
   var cards = <Widget>[];
 
   if (data.isEmpty) {
@@ -53,14 +11,7 @@ buildCards(BuildContext context, List<Map<String, Object>> data) {
   }
 
   for (var element in data) {
-    cards.add(buildTravelWarrantCard(
-        context,
-        element['person'].toString(),
-        element['date'].toString(),
-        element['destination'].toString(),
-        element['reason'].toString(),
-        element['note'].toString(),
-        isNew: element['new'] as bool));
+    cards.add(buildTravelWarrantCard(context, element));
   }
 
   return cards;
@@ -104,7 +55,7 @@ class _TravelWarrantsState extends State<TravelWarrants> {
                   )
                 ],
               ),
-              ...buildCards(context, data)
+              ...buildCards(context, TravelWarrant.fetchDataTest())
             ],
           ),
         ),
@@ -113,16 +64,17 @@ class _TravelWarrantsState extends State<TravelWarrants> {
   }
 }
 
-Widget buildTravelWarrantCard(BuildContext context, String name, String date,
-        String destination, String reason, String note,
-        {bool isNew = false,
-        TextStyle titleStyle = const TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-        TextStyle descStyle = const TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-        TextStyle dateStyle =
-            const TextStyle(fontSize: 10, color: Colors.white),
-        double widthRatio = 0.8}) =>
+Widget buildTravelWarrantCard(
+    BuildContext context,
+    TravelWarrant travelWarrant,
+    {
+      TextStyle titleStyle = const TextStyle(
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+      TextStyle descStyle = const TextStyle(
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+      TextStyle dateStyle =
+          const TextStyle(fontSize: 10, color: Colors.white),
+      double widthRatio = 0.8}) =>
     TextButton(
       onPressed: () {
         Navigator.pop(context);
@@ -140,11 +92,11 @@ Widget buildTravelWarrantCard(BuildContext context, String name, String date,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    name,
+                    travelWarrant.person,
                     style: titleStyle,
                   ),
                   Badge(
-                    showBadge: isNew,
+                    showBadge: travelWarrant.isNew,
                     shape: BadgeShape.square,
                     borderRadius: BorderRadius.circular(5),
                     position: BadgePosition.topEnd(top: 2, end: 5),
@@ -187,7 +139,7 @@ Widget buildTravelWarrantCard(BuildContext context, String name, String date,
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.62,
-                            child: Text(date,
+                            child: Text(travelWarrant.date,
                                 style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w300,
@@ -219,7 +171,7 @@ Widget buildTravelWarrantCard(BuildContext context, String name, String date,
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.62,
-                            child: Text(destination,
+                            child: Text(travelWarrant.destination,
                                 style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w300,
@@ -251,7 +203,7 @@ Widget buildTravelWarrantCard(BuildContext context, String name, String date,
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.62,
-                            child: Text(reason,
+                            child: Text(travelWarrant.reason,
                                 style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w300,
@@ -264,7 +216,7 @@ Widget buildTravelWarrantCard(BuildContext context, String name, String date,
                   const SizedBox(
                     height: 10,
                   ),
-                  if (note.isNotEmpty)
+                  if (travelWarrant.remark.isNotEmpty)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -284,7 +236,7 @@ Widget buildTravelWarrantCard(BuildContext context, String name, String date,
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width * 0.62,
-                              child: Text(note,
+                              child: Text(travelWarrant.remark,
                                   style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w300,
