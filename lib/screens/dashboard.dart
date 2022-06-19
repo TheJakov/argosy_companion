@@ -1,7 +1,7 @@
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
 import 'package:argosy_companion/screens/incoming_invoices.dart';
 import 'package:argosy_companion/screens/output_invoices.dart';
-import 'package:argosy_companion/screens/travel_warrant_calculation.dart';
+import 'package:argosy_companion/screens/travel_warrants_calculations.dart';
 import 'package:argosy_companion/screens/travel_warrants.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
@@ -76,7 +76,7 @@ class _DashboardState extends State<Dashboard> {
                   "Obračun putnih naloga",
                   2,
                   1,
-                  const TravelWarrantCalculation()),
+                  const TravelWarrantsCalculations()),
             ],
           ),
         ),

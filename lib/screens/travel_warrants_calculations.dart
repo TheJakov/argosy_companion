@@ -1,52 +1,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:argosy_companion/classes/argosy_companion_constants.dart';
+import 'package:argosy_companion/classes/travel_warrant_calculation.dart';
 
-import '../classes/argosy_companion_constants.dart';
-
-var data = [
-  {
-    'worker': 'Jack Sparrow',
-    'date': '24.05. - 26.05.',
-    'destination': 'Tortuga',
-    'reason': 'Drink',
-    'note': 'Mission successful',
-    'new': false
-  },
-  {
-    'worker': 'Tia Dalma',
-    'date': '01.06. - 04.06',
-    'destination': 'Davy Jones Locker',
-    'reason': 'Get Jack back',
-    'note': '',
-    'new': false
-  },
-  {
-    'worker': 'Hector Barbosa',
-    'date': '02.05. - 14.05.',
-    'destination': 'Isla de Muerte',
-    'reason': 'Death',
-    'note': 'Kinda died',
-    'new': true
-  },
-  {
-    'worker': 'William Turner',
-    'date': '04.05. - 12.05.',
-    'destination': 'The Flying Dutchman',
-    'reason': 'Save his father',
-    'note': 'Kinda failed',
-    'new': false
-  },
-  {
-    'worker': 'Elizabeth Swann',
-    'date': '12.04. - 03.06.',
-    'destination': 'Port Royal',
-    'reason': 'Visiting home',
-    'note': '',
-    'new': true
-  },
-];
-
-buildCards(BuildContext context, List<Map<String, Object>> data) {
+buildCards(BuildContext context, List<TravelWarrantCalculation> data) {
   var cards = <Widget>[];
 
   if (data.isEmpty) {
@@ -54,28 +11,21 @@ buildCards(BuildContext context, List<Map<String, Object>> data) {
   }
 
   for (var element in data) {
-    cards.add(buildTravelWarrantCalculationCard(
-        context,
-        element['worker'].toString(),
-        element['date'].toString(),
-        element['destination'].toString(),
-        element['reason'].toString(),
-        element['note'].toString(),
-        isNew: element['new'] as bool));
+    cards.add(buildTravelWarrantCalculationCard(context, element));
   }
 
   return cards;
 }
 
-class TravelWarrantCalculation extends StatefulWidget {
-  const TravelWarrantCalculation({Key? key}) : super(key: key);
+class TravelWarrantsCalculations extends StatefulWidget {
+  const TravelWarrantsCalculations({Key? key}) : super(key: key);
 
   @override
-  State<TravelWarrantCalculation> createState() =>
-      _TravelWarrantCalculationState();
+  State<TravelWarrantsCalculations> createState() =>
+      _TravelWarrantsCalculationState();
 }
 
-class _TravelWarrantCalculationState extends State<TravelWarrantCalculation> {
+class _TravelWarrantsCalculationState extends State<TravelWarrantsCalculations> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,7 +56,7 @@ class _TravelWarrantCalculationState extends State<TravelWarrantCalculation> {
                   )
                 ],
               ),
-              ...buildCards(context, data)
+              ...buildCards(context, TravelWarrantCalculation.fetchDataTest())
             ],
           ),
         ),
@@ -115,16 +65,18 @@ class _TravelWarrantCalculationState extends State<TravelWarrantCalculation> {
   }
 }
 
-Widget buildTravelWarrantCalculationCard(BuildContext context, String name,
-        String date, String destination, String reason, String note,
-        {bool isNew = false,
-        TextStyle titleStyle = const TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-        TextStyle descStyle = const TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-        TextStyle dateStyle =
-            const TextStyle(fontSize: 10, color: Colors.white),
-        double widthRatio = 0.8}) =>
+Widget buildTravelWarrantCalculationCard(
+    BuildContext context,
+    TravelWarrantCalculation travelWarrantCalculation,
+    {
+      TextStyle titleStyle = const TextStyle(
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+      TextStyle descStyle = const TextStyle(
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+      TextStyle dateStyle =
+          const TextStyle(fontSize: 10, color: Colors.white),
+      double widthRatio = 0.8
+    }) =>
     TextButton(
       onPressed: () {
         Navigator.pop(context);
@@ -142,11 +94,11 @@ Widget buildTravelWarrantCalculationCard(BuildContext context, String name,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    name,
+                    travelWarrantCalculation.person,
                     style: titleStyle,
                   ),
                   Badge(
-                    showBadge: isNew,
+                    showBadge: travelWarrantCalculation.isNew,
                     shape: BadgeShape.square,
                     borderRadius: BorderRadius.circular(5),
                     position: BadgePosition.topEnd(top: 2, end: 5),
@@ -189,7 +141,7 @@ Widget buildTravelWarrantCalculationCard(BuildContext context, String name,
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.62,
-                            child: Text(date,
+                            child: Text(travelWarrantCalculation.datePeriod(),
                                 style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w300,
@@ -221,7 +173,7 @@ Widget buildTravelWarrantCalculationCard(BuildContext context, String name,
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.62,
-                            child: Text(destination,
+                            child: Text(travelWarrantCalculation.destination,
                                 style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w300,
@@ -253,7 +205,7 @@ Widget buildTravelWarrantCalculationCard(BuildContext context, String name,
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.62,
-                            child: Text(reason,
+                            child: Text(travelWarrantCalculation.reason,
                                 style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w300,
@@ -266,7 +218,7 @@ Widget buildTravelWarrantCalculationCard(BuildContext context, String name,
                   const SizedBox(
                     height: 10,
                   ),
-                  if (note.isNotEmpty)
+                  if (travelWarrantCalculation.remark.isNotEmpty)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -286,7 +238,7 @@ Widget buildTravelWarrantCalculationCard(BuildContext context, String name,
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width * 0.62,
-                              child: Text(note,
+                              child: Text(travelWarrantCalculation.remark,
                                   style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w300,
