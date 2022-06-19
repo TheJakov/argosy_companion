@@ -17,7 +17,7 @@ class _LoginState extends State<Login> {
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('img/blob_background_theme.png'),
                 fit: BoxFit.cover)),
@@ -88,7 +88,7 @@ class _LoginState extends State<Login> {
                         color:
                             Color(ArgosyCompanionConstants.acMainThemeColorHex),
                         borderRadius: BorderRadius.circular(30)),
-                    padding: EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(15),
                     child: Center(
                       child: Text(
                         "Prijava",

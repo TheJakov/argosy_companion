@@ -2,7 +2,7 @@ import 'package:argosy_companion/classes/argosy_companion_constants.dart';
 import 'package:argosy_companion/screens/travel_warrant_detail.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:argosy_companion/classes/travel_warrant.dart';
+import 'package:argosy_companion/classes/bll/travel_warrant.dart';
 
 buildCards(BuildContext context, List<TravelWarrant> data) {
   var cards = <Widget>[];

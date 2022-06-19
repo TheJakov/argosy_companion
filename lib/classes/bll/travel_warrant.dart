@@ -1,4 +1,5 @@
 class TravelWarrant {
+  int id;
   String person;
   String dateFrom;
   String dateTo;
@@ -10,7 +11,7 @@ class TravelWarrant {
   bool isNew;
   List<String> projects;
 
-  TravelWarrant(this.person, this.dateFrom, this.dateTo, this.destination,
+  TravelWarrant(this.id, this.person, this.dateFrom, this.dateTo, this.destination,
       this.reason, this.remark, this.meansOfTransportation, this.advances,
       {this.isNew = false, this.projects = const []});
 
@@ -34,15 +35,15 @@ class TravelWarrant {
 
   static List<TravelWarrant> fetchDataTest() {
     return <TravelWarrant>[
-      TravelWarrant('Jakov Kristović', '05.06.2022.', '07.06.2022.', 'Zagreb',
+      TravelWarrant(1, 'Jakov Kristović', '05.06.2022.', '07.06.2022.', 'Zagreb',
           '.debug konferencija' , 'Putovanje avionom', 'Avion', '', projects: <String>["PROJ1", "PROJ2"]),
-      TravelWarrant('Luka Rokolj', '15.06.2022.', '20.08.2022.', 'Glasgow',
+      TravelWarrant(2, 'Luka Rokolj', '15.06.2022.', '20.08.2022.', 'Glasgow',
           'Sveučilišna posla', 'Ide preko volje', 'Avion', ''),
-      TravelWarrant('Jack Sparrow', '02.07.2022.', '13.07.2022.', 'Black Pearl',
+      TravelWarrant(3, 'Jack Sparrow', '02.07.2022.', '13.07.2022.', 'Black Pearl',
           'Promoviranje ruma', 'Ima li ga još?', 'Dingy', '350kn', isNew: true),
-      TravelWarrant('Davy Jones', '05.07.2022.',  '10.07.2022.', 'The Flying Dutchman',
+      TravelWarrant(4, 'Davy Jones', '05.07.2022.',  '10.07.2022.', 'The Flying Dutchman',
           'Đir oko Kariba', '', 'The Flying Dutchman', '', isNew: true, projects: <String>['PROJ2', 'PROJ3', 'PROJ4']),
-      TravelWarrant('Hector Barbosa', '23.07.2022.', '24.07.2022.',
+      TravelWarrant(5, 'Hector Barbosa', '23.07.2022.', '24.07.2022.',
           'Isle de Muerte', 'Da guzica vidi puta', '', 'Black Pearl', '', isNew: true),
     ];
   }

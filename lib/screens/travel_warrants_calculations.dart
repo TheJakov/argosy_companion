@@ -1,7 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
-import 'package:argosy_companion/classes/travel_warrant_calculation.dart';
+import 'package:argosy_companion/classes/bll/travel_warrant_calculation.dart';
 
 buildCards(BuildContext context, List<TravelWarrantCalculation> data) {
   var cards = <Widget>[];
