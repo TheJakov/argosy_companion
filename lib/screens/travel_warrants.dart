@@ -139,7 +139,7 @@ Widget buildTravelWarrantCard(
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.62,
-                            child: Text(travelWarrant.date,
+                            child: Text(travelWarrant.datePeriod(),
                                 style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w300,
