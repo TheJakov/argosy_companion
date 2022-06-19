@@ -139,7 +139,7 @@ Widget buildTravelWarrantCard(
                             width: 10,
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.62,
+                            width: MediaQuery.of(context).size.width * 0.60,
                             child: Text(travelWarrant.datePeriod(),
                                 style: const TextStyle(
                                     fontSize: 18,
@@ -171,7 +171,7 @@ Widget buildTravelWarrantCard(
                             width: 10,
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.62,
+                            width: MediaQuery.of(context).size.width * 0.60,
                             child: Text(travelWarrant.destination,
                                 style: const TextStyle(
                                     fontSize: 18,
@@ -203,7 +203,7 @@ Widget buildTravelWarrantCard(
                             width: 10,
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.62,
+                            width: MediaQuery.of(context).size.width * 0.60,
                             child: Text(travelWarrant.reason,
                                 style: const TextStyle(
                                     fontSize: 18,
@@ -236,7 +236,7 @@ Widget buildTravelWarrantCard(
                               width: 10,
                             ),
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.62,
+                              width: MediaQuery.of(context).size.width * 0.60,
                               child: Text(travelWarrant.remark,
                                   style: const TextStyle(
                                       fontSize: 18,

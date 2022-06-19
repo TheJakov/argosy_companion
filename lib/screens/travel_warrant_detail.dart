@@ -46,7 +46,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
               ),
             ),
             Container(
-                height: MediaQuery.of(context).size.height * 0.75,
+                height: MediaQuery.of(context).size.height * 0.74,
                 child: SingleChildScrollView(
                     child: Padding(
                   padding: const EdgeInsets.all(8.0),
