@@ -71,11 +71,11 @@ class _LoginState extends State<Login> {
                 ),
               ),
               const SizedBox(
-                height: 5,
+                height: 10,
               ),
               Text("Zaboravili ste lozinku?",
                   style: GoogleFonts.quicksand(
-                      fontSize: 14,
+                      fontSize: 15,
                       fontWeight: FontWeight.w100,
                       decoration: TextDecoration.underline)),
               const SizedBox(

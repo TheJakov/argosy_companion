@@ -17,7 +17,7 @@ class _AuthorisationState extends State<Authorisation> {
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('img/blob_background_theme.png'),
                 fit: BoxFit.cover)),
@@ -52,11 +52,11 @@ class _AuthorisationState extends State<Authorisation> {
                 ),
               ),
               const SizedBox(
-                height: 5,
+                height: 10,
               ),
               Text("Kako mogu dobiti aktivacijski kod?",
                   style: GoogleFonts.quicksand(
-                      fontSize: 14,
+                      fontSize: 15,
                       fontWeight: FontWeight.w100,
                       decoration: TextDecoration.underline)),
               const SizedBox(
@@ -69,7 +69,7 @@ class _AuthorisationState extends State<Authorisation> {
                         color:
                             Color(ArgosyCompanionConstants.acMainThemeColorHex),
                         borderRadius: BorderRadius.circular(30)),
-                    padding: EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(15),
                     child: Center(
                       child: Text(
                         "Aktivacija",
