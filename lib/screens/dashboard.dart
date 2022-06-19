@@ -73,7 +73,7 @@ class _DashboardState extends State<Dashboard> {
               buildDashboardItem(
                   context,
                   Color(ArgosyCompanionConstants.travelWarrantCalculationHex),
-                  "Obračun putnih naloga",
+                  "Obračuni putnih naloga",
                   2,
                   1,
                   const TravelWarrantsCalculations()),

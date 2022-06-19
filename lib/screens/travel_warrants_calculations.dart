@@ -31,7 +31,7 @@ class _TravelWarrantsCalculationState extends State<TravelWarrantsCalculations> 
     return Scaffold(
         body: SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 5),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -47,9 +47,9 @@ class _TravelWarrantsCalculationState extends State<TravelWarrantsCalculations> 
                         Navigator.pop(context);
                       }),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.8,
                     child: const Text(
-                      "Obračun putnog naloga",
+                      "Obračuni putnih naloga",
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                     ),

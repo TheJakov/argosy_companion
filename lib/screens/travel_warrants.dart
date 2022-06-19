@@ -1,4 +1,5 @@
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
+import 'package:argosy_companion/screens/travel_warrant_detail.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:argosy_companion/classes/travel_warrant.dart';
@@ -30,7 +31,7 @@ class _TravelWarrantsState extends State<TravelWarrants> {
     return Scaffold(
         body: SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 5),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -46,7 +47,7 @@ class _TravelWarrantsState extends State<TravelWarrants> {
                         Navigator.pop(context);
                       }),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.8,
                     child: const Text(
                       "Putni nalozi",
                       style:
@@ -77,7 +78,7 @@ Widget buildTravelWarrantCard(
       double widthRatio = 0.8}) =>
     TextButton(
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TravelWarrantDetail(travelWarrant)));
       },
       child: Card(
         color: Color(ArgosyCompanionConstants.travelWarrantHex),

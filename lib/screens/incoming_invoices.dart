@@ -64,7 +64,7 @@ class _IncomingInvoicesState extends State<IncomingInvoices> {
     return Scaffold(
         body: SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 5),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -80,7 +80,7 @@ class _IncomingInvoicesState extends State<IncomingInvoices> {
                         Navigator.pop(context);
                       }),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.8,
                     child: const Text(
                       "Ulazni računi",
                       style:
