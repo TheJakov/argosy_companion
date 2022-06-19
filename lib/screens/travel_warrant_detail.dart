@@ -44,7 +44,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                 ],
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.7,
+                height: MediaQuery.of(context).size.height * 0.75,
                 child:
                     SingleChildScrollView(
                       child:
@@ -67,7 +67,7 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
               Row(
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.15,
                     width: MediaQuery.of(context).size.width,
                     decoration: const BoxDecoration(color: Colors.lightBlueAccent),
                     child: const Text('Ovdje ide dio s odobravanjem'),
