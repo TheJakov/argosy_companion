@@ -11,4 +11,31 @@ class ArgosyCompanionUtil {
             color: value.isNotEmpty ? Colors.black : Colors.grey)
     );
   }
+
+  static Text displayDetailTextPlaceholder(String value){
+    return Text(value,
+        style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w300,
+            color: Colors.black)
+    );
+  }
+
+  static Row displayDetailTextComponent(String value, String placeholder){
+    return Row(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ArgosyCompanionUtil.displayDetailTextPlaceholder(placeholder),
+              const SizedBox(
+                height: 5,
+              ),
+              ArgosyCompanionUtil.displayDetailTextProperty(value)
+          ],
+        ),
+      ]
+    );
+  }
+
 }

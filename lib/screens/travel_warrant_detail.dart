@@ -52,155 +52,35 @@ class _TravelWarrantDetailState extends State<TravelWarrantDetail> {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Radnik",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.person)
-                          ],
-                        ),
-                      ]),
+                      ArgosyCompanionUtil.displayDetailTextComponent(widget.travelWarrant.person, 'Radnik'),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Datum putovanja",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.datePeriod())
-                          ],
-                        ),
-                      ]),
+                      ArgosyCompanionUtil.displayDetailTextComponent(widget.travelWarrant.datePeriod(), 'Datum putovanja'),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Odredište",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.destination)
-                          ],
-                        ),
-                      ]),
+                      ArgosyCompanionUtil.displayDetailTextComponent(widget.travelWarrant.destination, 'Odredište'),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Razlog",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.reason)
-                          ],
-                        ),
-                      ]),
+                      ArgosyCompanionUtil.displayDetailTextComponent(widget.travelWarrant.reason, 'Razlog'),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Projekti",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.getProjects())
-                          ],
-                        ),
-                      ]),
+                      ArgosyCompanionUtil.displayDetailTextComponent(widget.travelWarrant.getProjects(), 'Projekti'),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Napomena",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.remark)
-                          ],
-                        ),
-                      ]),
+                      ArgosyCompanionUtil.displayDetailTextComponent(widget.travelWarrant.remark, 'Napomena'),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Prijevozna sredstva",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.meansOfTransportation)
-                          ],
-                        ),
-                      ]),
+                      ArgosyCompanionUtil.displayDetailTextComponent(widget.travelWarrant.meansOfTransportation, 'Prijevozna sredstva'),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Akontacije",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ArgosyCompanionUtil.displayDetailTextProperty(widget.travelWarrant.advances)
-                          ],
-                        ),
-                      ]),
+                      ArgosyCompanionUtil.displayDetailTextComponent(widget.travelWarrant.advances, 'Akontacije'),
                     ],
                   ),
                 ))),
