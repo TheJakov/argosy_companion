@@ -1,33 +1,24 @@
-class TravelWarrantCalculation {
-  String person;
-  String dateFrom;
-  String dateTo;
-  String destination;
-  String reason;
-  String remark;
-  bool isNew;
+import 'package:argosy_companion/classes/bll/travel_warrant.dart';
 
-  TravelWarrantCalculation(
-      this.person,
-      this.dateFrom,
-      this.dateTo,
-      this.destination,
-      this.reason,
-      this.remark,
-      {this.isNew = false}
-      );
+class TravelWarrantCalculation extends TravelWarrant {
 
-  String datePeriod(){
-    return '$dateFrom - $dateTo';
-  }
+  TravelWarrantCalculation(id, person, dateFrom, dateTo, destination, reason, remark,
+      meansOfTransportation, advances, {isNew = false, projects = const []} ) :
+      super (id, person, dateFrom, dateTo, destination, reason, remark,
+          meansOfTransportation, advances);
 
-  static List<TravelWarrantCalculation> fetchDataTest(){
+  static List<TravelWarrantCalculation> fetchDataTest() {
     return <TravelWarrantCalculation>[
-      TravelWarrantCalculation('Jack Sparrow', '24.03.2022.', '26.03.2022.', 'Tortuga', 'Povjerljivo', 'Putovanje brodom'),
-      TravelWarrantCalculation('Tia Dalma', '01.04.2022.', '04.04.2022.', 'Davy Jones Locker', 'Osvojiti Jacka nazad', ''),
-      TravelWarrantCalculation('Hector Barbosa', '02.05.2022.', '10.05.2022.', 'Isla de Muerte', 'Nabavka zlatnika', 'Moguća oštečenja broda', isNew: true),
-      TravelWarrantCalculation('William Turner', '15.05.2022.', '17.05.2022.', 'The Fyling Dutchman', 'Godišnjica prestanka rada kao člana posade', '', isNew: true),
-      TravelWarrantCalculation('Elizabeth Swann', '01.06.2022,', '04.06.2022.', 'Port Royal', 'Posjet kući', 'Putovanje kočijom', isNew: true),
+      TravelWarrantCalculation(1, 'Jakov Kristović', '05.01.2022.', '09.01.2022.', 'New York',
+          'Poslovna konferencija', '.NET Days' , 'Avion', '', projects: <String>["PROJ11", "PROJ12"]),
+      TravelWarrantCalculation(2, 'Luka Rokolj', '12.02.2022.', '20.02.2022.', 'Amsterdam',
+          'Službeni put', 'Funny Cake Days', 'Vlak', '1100 €'),
+      TravelWarrantCalculation(3, 'Jack Sparrow', '13.02.2022.', '15.02.2022.', 'Port Royale',
+          'Edukacija', 'Destilacija ruma', 'Dingy', '350 zlatnika', isNew: true),
+      TravelWarrantCalculation(4, 'Davy Jones', '05.03.2022.',  '14.03.2022.', 'The Flying Dutchman',
+          'Seminar', 'Nova generacija čvorova', 'Brod', '', isNew: true, projects: <String>['PROJ2', 'PROJ3', 'PROJ4']),
+      TravelWarrantCalculation(5, 'Hector Barbosa', '19.04.2022.', '27.04.2022.', 'Tortuga',
+          'Certifikacija', 'Biti kapetan u 21. stoljeću', 'Brod', '', isNew: true),
     ];
   }
 }

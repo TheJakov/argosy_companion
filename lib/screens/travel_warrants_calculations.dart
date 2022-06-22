@@ -1,3 +1,4 @@
+import 'package:argosy_companion/screens/travel_warrant_calculation_detail.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:argosy_companion/classes/argosy_companion_constants.dart';
@@ -79,7 +80,7 @@ Widget buildTravelWarrantCalculationCard(
     }) =>
     TextButton(
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TravelWarrantCalculationDetail(travelWarrantCalculation)));
       },
       child: Card(
         color: Color(ArgosyCompanionConstants.travelWarrantCalculationHex),
