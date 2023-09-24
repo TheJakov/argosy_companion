@@ -1,5 +1,5 @@
 # argosy_companion
- Argosy (LausCC) mobile companion application
+ Argosy mobile companion application prototype
 
 ### Latest demo release 
 
